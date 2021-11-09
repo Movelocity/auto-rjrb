@@ -115,8 +115,8 @@ class CheckBot:
         
 def dailyCheck():
     checkbot = CheckBot()
-    checkbot.submit(username="GHSaccount",
-                    password="GHScode",  # 每次微信重登后好像都要改密码
+    checkbot.submit(username=os.environ.get("WZXY_ACCOUNT"),
+                    password=os.environ.get("WZXY_PASSWORD"),  # 每次微信重登后好像都要改密码
                     host="gw.wozaixiaoyuan.com",
                     user_agent="Dalvik/2.1.0 (Linux; U; Android 11; M2102J2SC Build/RKQ1.200826.002)",
                     mailbox=os.environ.get("TARGET"),
