@@ -17,7 +17,7 @@ class CheckBot:
         self.my_Name = "Volunteer"
         self.my_sender = os.environ.get("SENDER")
         self.my_pass = os.environ.get("MIYAO")
-        self.my_user = os.environ.get("SENDER") 
+        self.my_user = os.environ.get("TARGET_MAIL") 
         self.api = "https://student.wozaixiaoyuan.com/heat/save.json"
         self.headers = {
             "Host": "student.wozaixiaoyuan.com",
@@ -59,7 +59,7 @@ class CheckBot:
             return 1
 
       def run(self):
-        print(datetime.datetime.now().hour+8)
+        print("time: ",datetime.datetime.now().hour+8)
         print("second header = ", self.headers)
         res = requests.post(self.api, headers=self.headers, data=self.data, ).json()  # 打卡提交
         print("result = ", res)
@@ -93,6 +93,7 @@ class CheckBot:
         self.headers["User-Agent"] = user_agent
         self.my_Name = name
         self.my_user = mailbox
+        print(self.my_user)
         self.data["temperature"] = self.get_random_temprature() # 更新一次体温
         print("data = ", self.data)
         loginUrl = "https://gw.wozaixiaoyuan.com/basicinfo/mobile/login/username"
