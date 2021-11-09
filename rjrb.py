@@ -17,7 +17,7 @@ class CheckBot:
         self.my_Name = "Volunteer"
         self.my_sender = os.environ.get("SENDER")
         self.my_pass = os.environ.get("MIYAO")
-        self.my_user = os.environ.get("TARGET_MAIL") 
+        self.my_user = os.environ.get("TARGET") 
         self.api = "https://student.wozaixiaoyuan.com/heat/save.json"
         self.headers = {
             "Host": "student.wozaixiaoyuan.com",
@@ -109,7 +109,6 @@ class CheckBot:
         else:
             print(res)
             print('Login failed.')
-            return False
         self.run()
         
         
@@ -120,7 +119,7 @@ def dailyCheck():
                     password=os.environ.get("WZXY_PASSWORD"),  # 每次微信重登后好像都要改密码
                     host="gw.wozaixiaoyuan.com",
                     user_agent="Dalvik/2.1.0 (Linux; U; Android 11; M2102J2SC Build/RKQ1.200826.002)",
-                    mailbox=os.environ.get("TARGET_MAIL"),
+                    mailbox=os.environ.get("TARGET"),
                     name="Captain ")
 
     
