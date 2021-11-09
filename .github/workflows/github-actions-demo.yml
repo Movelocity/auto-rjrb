@@ -23,7 +23,7 @@ jobs:
       - run: python -m pip install --upgrade pip
       - name: send_mail
         env: 
-          SENDER: ${{secrets.SENDER}}
+          SENDER: ${{secrets.SENDERS}}
           MIYAO: ${{secrets.MIYAO}}
           TARGET_MAIL: ${{secrets.TARGET_MAIL}}
         run: python my_script2.py
