@@ -17,4 +17,15 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "${{ secrets.SENDER }}, ${{ secrets.MIYAO }}, ${{ secrets.TARGET_MAIL }}"
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+      - name: SEND_EMAIL
+        env: 
+          SENDER: ${{secrets.SENDERS}}
+          MIYAO: ${{secrets.MIYAO}}
+          TARGET_MAIL: ${{secrets.TARGET_MAIL}}
+        run: python my_script2.py
 
