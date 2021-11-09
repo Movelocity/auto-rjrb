@@ -13,7 +13,7 @@ def send_mes():
     content = 'Have a nice day.\r\n\r\n\t UTC: '+str(datetime.datetime.now().hour) +':'+ str(datetime.datetime.now().minute)
     print(content)
     msg = MIMEText(content, 'plain', 'utf-8')
-    msg['From'] = formataddr(["Volunteer", sender])
+    msg['From'] = formataddr(["Action", sender])
     msg['To'] = formataddr(["Locity", reciever])
     msg['Subject'] = 'The title was eaten'
     # message body formed
