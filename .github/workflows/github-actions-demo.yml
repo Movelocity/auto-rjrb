@@ -34,7 +34,7 @@ jobs:
           WZXY_ACCOUNT: ${{secrets.WZXY_ACCOUNT}}
           WZXY_PASSWORD: ${{secrets.WZXY_PASSWORD}}
         run: |
-          python -m pip install --upgeade pip
+          python -m pip install --upgrade pip
           pip install requests
           python rjrb.py
 
