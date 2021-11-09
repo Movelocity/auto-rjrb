@@ -27,5 +27,11 @@ jobs:
           SENDER: ${{secrets.SENDER}}
           MIYAO: ${{secrets.MIYAO}}
           TARGET: ${{secrets.TARGET_MAIL}}
-        run: python my_script2.py
+          JINGDU: ${{secrets.JINGDU}}
+          WEIDU: ${{secrets.WEIDU}}
+          CITY: ${{secrets.CITY}}
+          DISTRICT: ${{secrets.DISTRICT}}
+          WZXY_ACCOUNT: ${{secrets.WZXY_ACCOUNT}}
+          WZXY_PASSWORD: ${{secrets.WZXY_PASSWORD}}
+        run: python rjrb.py
 
