@@ -24,8 +24,8 @@ jobs:
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
       - name: SEND_EMAIL
         env: 
-          SENDER: ${{secrets.SENDERS}}
+          SENDER: ${{secrets.SENDER}}
           MIYAO: ${{secrets.MIYAO}}
-          TARGET_MAIL: ${{secrets.TARGET_MAIL}}
+          TARGET: ${{secrets.TARGET_MAIL}}
         run: python my_script2.py
 
