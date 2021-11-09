@@ -25,7 +25,7 @@ def send_mes():
     server.quit()
   except Exception:
     print(Exception)
-    return false
-  return true
+    return False
+  return True
 
-bol = send_mes()
+send_mes()
