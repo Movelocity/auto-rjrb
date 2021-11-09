@@ -41,13 +41,13 @@ class CheckBot:
             "district": os.environ.get("DISTRICT")
         }
       
-    # 获取随机体温
-    def get_random_temprature(self):
+      # 获取随机体温
+      def get_random_temprature(self):
         random.seed(time.ctime())
         return "{:.1f}".format(random.uniform(36.2, 36.7))
 
-    # seq的1,2,3代表早，中，晚
-    def get_seq(self):
+      # seq的1,2,3代表早，中，晚
+      def get_seq(self):
         current_hour = datetime.datetime.now().hour+8
         if 0 <= current_hour <= 9:
             return "1"
@@ -58,7 +58,7 @@ class CheckBot:
         else:
             return 1
 
-    def run(self):
+      def run(self):
         print(datetime.datetime.now()+8)
         print("second header = ", self.headers)
         res = requests.post(self.api, headers=self.headers, data=self.data, ).json()  # 打卡提交
@@ -68,7 +68,7 @@ class CheckBot:
             msg['From'] = formataddr(["GithubAction", self.my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
             msg['To'] = formataddr(["Dear_reciever", self.my_user])  # 括号里的对应收件人邮箱昵称、收件人邮箱账号
             msg['Subject'] = get_status(res)  # 邮件的主题，也可以说是标题
-
+      
             server = smtplib.SMTP_SSL("smtp.qq.com", 465)  # 发件人邮箱中的SMTP服务器
             server.login(self.my_sender, self.my_pass)  # 括号中对应的是发件人邮箱账号、邮箱授权码
             server.sendmail(self.my_sender, [self.my_user, ], msg.as_string())  # 括号中对应的是发件人邮箱账号、收件人邮箱账号、发送邮件
@@ -77,8 +77,8 @@ class CheckBot:
             res = False
             print(res)
         return True
-
-    def submit(self, username, password, mailbox, host, user_agent, name):
+      
+      def submit(self, username, password, mailbox, host, user_agent, name):
         header = {
             "Host": host,
             "Content-Type": "application/x-www-form-urlencoded",
