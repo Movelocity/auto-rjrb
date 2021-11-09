@@ -1,4 +1,6 @@
 # auto-rjrb
-Automatically submit data daily to a annoying wechat applet.
+Automatically submit data daily to an annoying wechat applet.
 
-this is in a branch
+这里自动打卡的主要代码来自[Gitee作者Dominic](https://gitee.com/dominic548/autocheck)
+
+
