@@ -10,7 +10,7 @@ def send_mes():
   my_sender = os.environ.get("SENDER")
   my_pass = os.environ.get("MIYAO")
   my_user = os.environ.get("TARGET")
-  print('target mail: ', my_user[:], "; sender: ", my_sender, "; pass: ", my_pass)
+  print('target mail len: ', len(my_user), "; sender: ", my_sender, "; pass: ", my_pass)
   
 
 send_mes()
