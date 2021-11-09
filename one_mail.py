@@ -10,6 +10,7 @@ def send_mes():
   #print('target mail len: ', len(reciever), "; sender: ", sender, "; pass: ", key) #you can see these args show like *** cause they are hidden
   try:
     content = 'Have a nice day.\\n\tClock: '+str(datetime.datetime.now().hour+8)
+    print(content)
     msg = MIMEText(content, 'plain', 'utf-8')
     msg['From'] = formataddr(["GithubAction", sender])
     msg['To'] = formataddr(["Locity", reciever])
