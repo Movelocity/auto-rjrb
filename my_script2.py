@@ -28,4 +28,4 @@ def send_mes():
     return false
   return true
 
-send_mes()
+bol = send_mes()
