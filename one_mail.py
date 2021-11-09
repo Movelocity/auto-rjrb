@@ -24,3 +24,5 @@ def send_mes():
     print(Exception)
     return False
   return True
+
+send_mes()
