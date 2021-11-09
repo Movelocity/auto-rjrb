@@ -24,7 +24,7 @@ jobs:
       - name: send_mail
         env: 
           SCKEY: ${{ secrets.SENDER }} 
-                 ${{ secrets.MIYAO }} 
-                 ${{ secrets.TARGET_MAIL }}
+          MIYAO: ${{ secrets.MIYAO }} 
+          TARGET_MAIL: ${{ secrets.TARGET_MAIL }}
         run: python my_script2.py
 
