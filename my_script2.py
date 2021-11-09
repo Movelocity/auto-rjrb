@@ -7,9 +7,9 @@ from email.utils import formataddr
 print('system version:', sys.version)
 
 def send_mes():
-  my_sender = os.environ["SENDER"]
-  my_pass = os.environ["MIYAO"]
-  my_user = os.environ["TARGET_MAIL"]
+  my_sender = os.environ.get("SENDER")
+  my_pass = os.environ.get("MIYAO")
+  my_user = os.environ.get("TARGET_MAIL")
   print('target mail: ', my_user)
   try:
     msg = MIMEText('hello', 'plain', 'utf-8')  # 填写邮件内容
