@@ -7,9 +7,10 @@ from email.utils import formataddr
 print('system version:', sys.version)
 
 def send_mes():
-  my_sender = os.environ["YOUXIANG"]
+  my_sender = os.environ["SENDER"]
   my_pass = os.environ["MIYAO"]
-  my_user = os.environ["target_mail"]
+  my_user = os.environ["TARGET_MAIL"]
+  print('target mail: ', my_user)
   try:
     msg = MIMEText('hello', 'plain', 'utf-8')  # 填写邮件内容
     msg['From'] = formataddr(["in the campus", my_sender])  # 括号里的对应发件人邮箱昵称、发件人邮箱账号
