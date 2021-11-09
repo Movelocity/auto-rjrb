@@ -59,7 +59,7 @@ class CheckBot:
             return 1
 
       def run(self):
-        print(datetime.datetime.now()+8)
+        print(datetime.datetime.now().hour+8)
         print("second header = ", self.headers)
         res = requests.post(self.api, headers=self.headers, data=self.data, ).json()  # 打卡提交
         print("result = ", res)
