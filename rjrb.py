@@ -1,3 +1,5 @@
+# 来源: https://gitee.com/dominic548/autocheck, 侵删
+
 import sys
 import os
 import json
