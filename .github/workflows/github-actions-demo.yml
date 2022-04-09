@@ -1,0 +1,44 @@
+name: Send one email per hour
+on:
+  push:
+  #schedule:
+  #  - cron: '10 * * * *'
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    environment: SEND_EMAIL
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: echo "${{ secrets.SENDER }}, ${{ secrets.MIYAO }}, ${{ secrets.TARGET_MAIL }}"
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+      - name: get_books
+        env: 
+          SENDER: ${{secrets.SENDER}}
+          MIYAO: ${{secrets.SENDER_PASS}}
+          TARGET: ${{secrets.RECIEVER}}
+          JINGDU: ${{secrets.JINGDU}}
+          WEIDU: ${{secrets.WEIDU}}
+          CITY: ${{secrets.CITY}}
+          DISTRICT: ${{secrets.DISTRICT}}
+          WZXY_ACCOUNT: ${{secrets.WZXY_ACCOUNT}}
+          WZXY_PASSWORD: ${{secrets.WZXY_PASSWORD}}
+        run: |
+          python -m pip install --upgrade pip
+          pip install json
+          pip install pandas
+          python part2.py
+
