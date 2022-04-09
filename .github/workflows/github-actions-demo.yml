@@ -1,8 +1,8 @@
 name: Send one email per hour
 on:
   push:
-  schedule:
-    - cron: '10 * * * *'
+  #schedule:
+  #  - cron: '10 * * * *'
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.9' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-      - name: SEND_EMAIL
+      - name: get_books
         env: 
           SENDER: ${{secrets.SENDER}}
           MIYAO: ${{secrets.SENDER_PASS}}
@@ -38,6 +38,7 @@ jobs:
           WZXY_PASSWORD: ${{secrets.WZXY_PASSWORD}}
         run: |
           python -m pip install --upgrade pip
-          pip install requests
-          python one_mail.py
+          pip install json
+          pip install pandas
+          python part2.py
 
